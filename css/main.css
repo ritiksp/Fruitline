@@ -3641,6 +3641,13 @@ box-shadow: 0.2rem 0.2rem 1rem  #777;
 margin: 2rem;
 border-radius: 1rem;
 }
+
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+
 /* .location{
   background: #FF7417;
   width: 4rem;
