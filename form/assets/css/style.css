@@ -26,8 +26,8 @@ h1, h2 {
 
 img { max-width: 100%; }
 
-::-moz-selection { background: #a93a52; color: #fff; text-shadow: none; }
-::selection { background: #a93a52; color: #fff; text-shadow: none; }
+::-moz-selection { background: #f47325; color: #fff; text-shadow: none; }
+::selection { background: #f47325; color: #fff; text-shadow: none; }
 
 
 /***** Top menu *****/
