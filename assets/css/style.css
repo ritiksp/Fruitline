@@ -68,6 +68,13 @@ h1, h2, h3, h4, h5, h6 {
   background: #fff;
 }
 
+.banner {
+  align-content: center;
+  display: none;
+  justify-content: center;
+  width: 100%;
+}
+
 #preloader:before {
   content: "";
   position: fixed;

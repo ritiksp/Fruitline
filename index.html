@@ -28,6 +28,31 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/testimonial.css">
+
+  <!-- Progressive Web Application -->
+  <link rel="manifest" href="/manifest.json">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Fruitline">
+  <meta name="apple-mobile-web-app-title" content="Fruitline">
+  <meta name="theme-color" content="#f47325">
+  <meta name="msapplication-navbutton-color" content="#f47325">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-starturl" content="/index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="icon" sizes="128x128" href="assets/img/logo/logo128.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="assets/img/logo/logo128.png">
+  <link rel="icon" sizes="192x192" href="assets/img/logo/logo192.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/img/logo/logo192.png">
+  <link rel="icon" sizes="256x256" href="assets/img/logo/logo256.png">
+  <link rel="apple-touch-icon" sizes="256x256" href="assets/img/logo/logo256.png">
+  <link rel="icon" sizes="384x384" href="assets/img/logo/logo384.png">
+  <link rel="apple-touch-icon" sizes="384x384" href="assets/img/logo/logo384.png">
+  <link rel="icon" sizes="512x512" href="assets/img/logo/logo512.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="assets/img/logo/logo512.png">
+
 </head>
 
 <script>
@@ -62,7 +87,7 @@
       </div>
     </div>
   </div> -->
-
+  
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
@@ -109,6 +134,9 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
       <h1>Fruitline</h1>
       <h2>We Serve Health</h2>
+      <section id="installBanner" class="banner">
+        <button id="installBtn">Install app</button>
+    </section>
       <a href="./form/index.html" class="btn-get-started scrollto">Get Fruitlined</a>
     </div>
   </section><!-- End Hero -->
@@ -706,6 +734,39 @@ We also strive to onboard fruit vendors and build a community, so as to provide 
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', event => {
+
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      event.preventDefault();
+
+      // Stash the event so it can be triggered later.
+      deferredPrompt = event;
+
+      // Attach the install prompt to a user gesture
+      document.querySelector('#installBtn').addEventListener('click', event => {
+
+        // Show the prompt
+        deferredPrompt.prompt();
+
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice
+          .then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+              console.log('User accepted the A2HS prompt');
+            } else {
+              console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+          });
+      });
+
+      // Update UI notify the user they can add to home screen
+      document.querySelector('#installBanner').style.display = 'flex';
+    });
+  </script>
 
 </body>
 
