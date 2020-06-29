@@ -11,7 +11,7 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="apple-touch-icon">
  
 
   <!-- Google Fonts -->
@@ -29,9 +29,9 @@
   <link href="assets/css/style.css" rel="stylesheet">
   
 
-  <!-- Progressive Web Application -->
-  <link rel="manifest" href="/manifest.json">
-
+  <!-- Progressive Web Application
+  <link rel="manifest" href="/manifest.json"> -->
+<!-- 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Fruitline">
@@ -51,28 +51,24 @@
   <link rel="icon" sizes="384x384" href="assets/img/logo/logo384.png">
   <link rel="apple-touch-icon" sizes="384x384" href="assets/img/logo/logo384.png">
   <link rel="icon" sizes="512x512" href="assets/img/logo/logo512.png">
-  <link rel="apple-touch-icon" sizes="512x512" href="assets/img/logo/logo512.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="assets/img/logo/logo512.png"> -->
 
 </head>
 
-<script>
+<!-- <script>
+  // Check that service workers are supported
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/service-worker.js')
-        .then(reg => {
-          console.log('Service worker registered! 😎', reg);
-        })
-        .catch(err => {
-          console.log('😥 Service worker registration failed: ', err);
-        });
+    // Use the window load event to keep the page load performant
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js');
     });
   }
-  </script>
+  </script> -->
 
 <body>
-  <section id="installBanner" class="banner">
+  <!-- <section id="installBanner" class="banner">
     <button id="installBtn">Install app</button>
-  </section>
+  </section> -->
   <!-- ======= Top Bar ======= -->
   <!-- <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top ">
     <div class="container d-flex">
@@ -730,12 +726,12 @@ We also strive to onboard fruit vendors and build a community, so as to provide 
   <script src="assets/vendor/venobox/venobox.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/js/testimonial.js"></script>
+ 
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <script >
+  <!-- <script >
     let deferredPrompt;
     window.addEventListener('beforeinstallprompt', event => {
 
@@ -766,7 +762,7 @@ We also strive to onboard fruit vendors and build a community, so as to provide 
       // Update UI notify the user they can add to home screen
       document.querySelector('#installBanner').style.display = 'flex';
     });
-  </script>
+  </script> -->
 
 </body>
 

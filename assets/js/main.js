@@ -4,6 +4,15 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+if ('serviceWorker' in navigator) {
+  // Use the window load event to keep the page load performant
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('../sw_cached_pages.js')
+    .then(reg => console.log('Service Worker: Registered'))
+    .catch(err => console.log('Service Worker: Error'))
+  }) 
+}
+
 !(function($) {
   "use strict";
 
